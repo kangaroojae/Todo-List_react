@@ -12,6 +12,11 @@ function App(props) {
       key={task.id}
     />
   ));
+  function addTask(name){
+    alert(name);
+  }
+
+  <Form addTask={addTask} />
   return (
     <div className="todoapp stack-large">
       <h1>TodoMatic</h1>
