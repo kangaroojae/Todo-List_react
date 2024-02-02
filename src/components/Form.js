@@ -1,22 +1,21 @@
-import React from "react";
 import { useState } from "react";
+
 
 function Form(props) {
   const [name, setName] = useState("");
 
-  function handleSubmit(event){
-    event.preventDefault();
-    props.addTask("Say Hello!");
-
-  }
   function handleChange(event) {
-    console.log(event.target.value);
+    setName(event.target.value);
   }
-  
-  
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    props.addTask(name);
+    setName("");
+  }
+
   return (
-    <form>
-      <form onSubmit={handleSubmit}></form>
+    <form onSubmit={handleSubmit}>
       <h2 className="label-wrapper">
         <label htmlFor="new-todo-input" className="label__lg">
           What needs to be done?
@@ -35,7 +34,6 @@ function Form(props) {
         Add
       </button>
     </form>
-    
   );
 }
 
